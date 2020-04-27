@@ -11,6 +11,7 @@ class TabSelector extends Component {
 
   handleChangeTab(event) {
     const buttonId = event.target.id;
+    this.props.getID(buttonId);
     this.setState({ activeId: buttonId });
   }
 

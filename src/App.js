@@ -14,11 +14,19 @@ class App extends Component {
       activeId: 'home'
     };
   }
+  
+  getID = (id) => {
+    this.setState({activeId: id});
+  }
 
   getTabContent() {
     switch(this.state.activeId) {
       case 'home':
         return <Home />;
+      case 'about':
+          return <About />;
+      case 'contact':
+        return <Contact />;
       default:
         return <Error />;
     }
@@ -27,7 +35,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <TabSelector />
+        <TabSelector getID={this.getID}/>
         <div className="App-content">
           {
             this.getTabContent()
